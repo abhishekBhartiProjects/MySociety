@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MySociety</string>
+    <string name="society_name">Nisarg Hyde Park</string>
+    <string name="society_description">Developed by Nisarg Group, situated in Kharghar, Navi Mumbai</string>
+    <string name="content_desc_society_image">Nisarg Hyde Park Image</string>
+
+    <string name="login">Login</string>
+    <string name="not_a_member">Not a member?</string>
+    <string name="get_invitation"><u>Get Invitation</u></string>
+</resources>
