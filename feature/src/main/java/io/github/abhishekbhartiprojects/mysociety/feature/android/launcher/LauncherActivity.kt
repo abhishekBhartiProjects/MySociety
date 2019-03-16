@@ -1,5 +1,6 @@
 package io.github.abhishekbhartiprojects.mysociety.feature.android.launcher
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -8,7 +9,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import io.github.abhishekbhartiprojects.mysociety.feature.R
-import android.view.animation.AnimationUtils.loadAnimation
+import io.github.abhishekbhartiprojects.mysociety.feature.android.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_launcher.*
 
 
@@ -41,7 +42,9 @@ class LauncherActivity : AppCompatActivity() {
     }
 
     private fun setClickListeners(){
-        tv_login.setOnClickListener {  }
+        tv_login.setOnClickListener {
+            startActivity(Intent(it.context, LoginActivity::class.java))
+        }
         tv_get_invitation.setOnClickListener {  }
         iv_proceed_as_guest.setOnClickListener {  }
     }
