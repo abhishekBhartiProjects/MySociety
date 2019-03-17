@@ -25,4 +25,26 @@ dependencies {
     implementation 'com.airbnb.android:lottie:2.5.5'
     implementation 'com.google.android.material:material:1.0.0-rc01'
 
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
+    //Rx
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+    implementation 'com.jakewharton.rxbinding2:rxbinding-appcompat-v7:2.0.0'
+
+    //viewModel
+    implementation "android.arch.lifecycle:extensions:$rootProject.lifecycleVersion"
+    implementation "android.arch.lifecycle:viewmodel:$rootProject.lifecycleVersion"
+
+    //Sheet
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.0'
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-config:16.4.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

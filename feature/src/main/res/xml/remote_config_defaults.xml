@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+
+    <entry>
+        <key>sheet_endpoint</key>
+        <value>http://services.testbook.com:5000/</value>
+    </entry>
+
+    <entry>
+        <key>hyde_park_sheetid</key>
+        <value>1FMBOtxzxGtcAVw93dbuqiWgSpxqVUWnoaw1Oox-bH6Q</value>
+    </entry>
+
+    <entry>
+        <key>member_info_page</key>
+        <value>1</value>
+    </entry>
+
+    <entry>
+        <key>add_member_request_page</key>
+        <value>2</value>
+    </entry>
+
+    <entry>
+        <key>rent_page</key>
+        <value>3</value>
+    </entry>
+
+</defaultsMap>
