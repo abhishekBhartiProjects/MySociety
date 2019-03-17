@@ -33,8 +33,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".android.base.BaseActivity"></activity>
-        <activity android:name=".android.login.LoginActivity"></activity>
+        <activity android:name=".android.base.BaseActivity" />
+        <activity android:name=".android.login.LoginActivity" />
+        <activity android:name=".android.home.HomeActivity"></activity>
     </application>
 
 </manifest>

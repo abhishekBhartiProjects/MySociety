@@ -23,6 +23,8 @@ class MyApplication: Application() {
         if (!FirebaseApp.getApps(this).isEmpty()) {
             mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
         }
+
+        MySharedPreference.instantiateSharedPreference(this)
     }
 
 

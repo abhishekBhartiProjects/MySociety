@@ -8,7 +8,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import io.github.abhishekbhartiprojects.mysociety.feature.R
 import io.github.abhishekbhartiprojects.mysociety.feature.android.Common
+import io.github.abhishekbhartiprojects.mysociety.feature.android.MySharedPreference
 import io.github.abhishekbhartiprojects.mysociety.feature.android.base.BaseActivity
+import io.github.abhishekbhartiprojects.mysociety.feature.android.home.HomeActivity
 import io.github.abhishekbhartiprojects.mysociety.feature.model.MemberInfoRow
 import io.github.abhishekbhartiprojects.mysociety.feature.model.SheetDataMemberInfo
 import io.github.abhishekbhartiprojects.mysociety.feature.viewModel.SheetViewModel
@@ -73,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
                     isValidMember = true
 
                     if(memberInfoRow.pin.equals(pin)){
-                        loginVerified(memberInfoRow)
+                        loginVerified(memberInfoRow, sheetDataMemberInfo)
                     } else {
                         Common.showToastShort(this, "Incorrect Pin")
                     }
@@ -84,10 +86,6 @@ class LoginActivity : AppCompatActivity() {
                 Common.showToastShort(this, "Member not found!")
             }
         }
-    }
-
-    private fun loginVerified(loggedInMemberData: MemberInfoRow){
-        Common.showToastShort(this, "You are successfully logged in")
     }
 
     private fun getDataAndverifyLogin(memberId: String, pin: String){
@@ -103,5 +101,16 @@ class LoginActivity : AppCompatActivity() {
 
     private fun getMemberInfo(){
         sheetViewModel.getMemberInfo()
+    }
+
+    private fun loginVerified(loggedInMemberData: MemberInfoRow, allMembersData: SheetDataMemberInfo){
+        Common.showToastShort(this, "You are successfully logged in")
+        setMemberInfoInSharedPreference(loggedInMemberData)
+        HomeActivity.start(this, loggedInMemberData.memberid, allMembersData)
+    }
+
+    private fun setMemberInfoInSharedPreference(loggedInMemberData: MemberInfoRow){
+        MySharedPreference.setBooleanValue(MySharedPreference.KEY_IS_LOGGED_IN, true)
+        MySharedPreference.setStringValue(MySharedPreference.KEY_MEMBER_ID, loggedInMemberData.memberid)
     }
 }
