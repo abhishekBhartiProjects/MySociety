@@ -6,6 +6,7 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
+    <color name="red">#e72d2d</color>
 
     <color name="white_AA">#AAFFFFFF</color>
     <color name="white_BB">#BBFFFFFF</color>
@@ -22,5 +23,9 @@
 
     <color name="blue_black">#1a0049</color>
     <color name="blue_black_90">#801a0049</color>
+
+    <color name="pink">#ff7373</color>
+    <color name="green_17a37f">#17a37f</color>
+    <color name="orange_f6bd0e">#f6bd0e</color>
 
 </resources>

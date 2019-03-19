@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/space_4"
+    android:elevation="@dimen/space_2"
+    android:layout_marginTop="@dimen/space_8"
+    android:layout_marginBottom="@dimen/space_8"
+    android:background="@drawable/bg_selector_white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_default_dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:padding="@dimen/space_12"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:id="@+id/admin"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:text="Admin"
+            android:gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/space_12"
+            android:background="@drawable/gradient_red_orange"
+            app:layout_constraintBottom_toBottomOf="@id/civ_dp"
+            app:layout_constraintStart_toStartOf="@id/civ_dp"
+            app:layout_constraintEnd_toEndOf="@id/civ_dp"/>
+
+        <TextView
+            android:id="@+id/member_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Abhishek Bharti"
+            android:textColor="@color/black"
+            android:layout_marginRight="@dimen/space_12"
+            android:layout_marginTop="@dimen/space_12"
+            android:textSize="@dimen/text_size_16"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintLeft_toRightOf="@+id/civ_dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/profession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Software Engineer"
+            android:textColor="@color/blue"
+            android:layout_marginRight="@dimen/space_12"
+            android:layout_marginTop="@dimen/space_2"
+            android:textSize="@dimen/text_size_14"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintLeft_toRightOf="@+id/civ_dp"
+            app:layout_constraintTop_toBottomOf="@+id/member_name"/>
+
+        <TextView
+            android:id="@+id/flat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A6 801"
+            android:textColor="@color/pink"
+            android:layout_marginRight="@dimen/space_12"
+            android:layout_marginTop="@dimen/space_16"
+            android:textSize="@dimen/text_size_12"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintLeft_toRightOf="@+id/civ_dp"
+            app:layout_constraintTop_toBottomOf="@+id/profession"/>
+
+        <TextView
+            android:id="@+id/owner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Owner"
+            android:textColor="@color/green_17a37f"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="@dimen/space_12"
+            android:textSize="@dimen/text_size_12"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintLeft_toRightOf="@+id/flat"
+            app:layout_constraintTop_toTopOf="@id/flat"/>
+
+        <TextView
+            android:id="@+id/blood_group_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blood Group: "
+            android:textColor="@color/blue"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="@dimen/space_12"
+            android:textSize="@dimen/text_size_12"
+            android:fontFamily="sans-serif"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintLeft_toRightOf="@+id/owner"
+            app:layout_constraintTop_toTopOf="@id/flat"/>
+
+        <TextView
+            android:id="@+id/blood_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="B+"
+            android:textColor="@color/pink"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="@dimen/space_12"
+            android:textSize="@dimen/text_size_12"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintLeft_toRightOf="@+id/blood_group_text"
+            app:layout_constraintTop_toTopOf="@id/flat"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,5 +1,6 @@
 package io.github.abhishekbhartiprojects.mysociety.feature.android.home
 
+import android.os.Bundle
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -16,7 +17,12 @@ class HomeViewPagerAdapter(fm: FragmentManager,
 
     init {
         addFragment(HomeEventFragment.newInstance(null), "EVENTS")
-        addFragment(HomeEventFragment.newInstance(null), "MEMBERS")
+
+        //HomeMembersFragment
+        var memberBundle: Bundle = Bundle()
+        memberBundle.putParcelable(HomeMembersFragment.ALL_MEMBERS_DATA, allMembersData)
+        addFragment(HomeMembersFragment.newInstance(memberBundle), "MEMBERS")
+
         addFragment(HomeEventFragment.newInstance(null), "ABOUT SOCIETY")
         addFragment(HomeEventFragment.newInstance(null), "FOR RENT")
     }

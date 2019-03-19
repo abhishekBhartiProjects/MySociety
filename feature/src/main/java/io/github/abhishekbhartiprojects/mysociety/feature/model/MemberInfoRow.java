@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "pin",
         "profession",
         "imageurl",
+        "isOwner",
+        "bloodGroup",
         "description"
 })
 
@@ -46,6 +48,10 @@ public class MemberInfoRow implements Parcelable {
     private String profession = "";
     @JsonProperty("imageurl")
     private String imageurl = "";
+    @JsonProperty("isowner")
+    private boolean isowner = false;
+    @JsonProperty("bloodgroup")
+    private String bloodgroup = "";
     @JsonProperty("description")
     private String description = "";
 
@@ -61,6 +67,8 @@ public class MemberInfoRow implements Parcelable {
         pin = in.readString();
         profession = in.readString();
         imageurl = in.readString();
+        isowner = in.readByte() != 0;
+        bloodgroup = in.readString();
         description = in.readString();
     }
 
@@ -94,6 +102,8 @@ public class MemberInfoRow implements Parcelable {
         parcel.writeString(pin);
         parcel.writeString(profession);
         parcel.writeString(imageurl);
+        parcel.writeByte((byte) (isowner ? 1 : 0));
+        parcel.writeString(bloodgroup);
         parcel.writeString(description);
     }
 
@@ -183,6 +193,22 @@ public class MemberInfoRow implements Parcelable {
 
     public void setImageurl(String imageurl) {
         this.imageurl = imageurl;
+    }
+
+    public boolean isIsowner() {
+        return isowner;
+    }
+
+    public void setIsowner(boolean isowner) {
+        this.isowner = isowner;
+    }
+
+    public String getBloodgroup() {
+        return bloodgroup;
+    }
+
+    public void setBloodgroup(String bloodgroup) {
+        this.bloodgroup = bloodgroup;
     }
 
     public String getDescription() {
