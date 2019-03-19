@@ -36,14 +36,14 @@ class HomeMembersAdapter(var membersList: List<MemberInfoRow>): RecyclerView.Ada
         fun setView(memberInfo: MemberInfoRow){
             //set DP
             if(view != null && !TextUtils.isEmpty(memberInfo.imageurl)){
-//                val requestOptions = RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL)
-//
-//                var builder = Glide.with(view!!.context)
-//                    .load(memberInfo.imageurl)
-//
-//                requestOptions.placeholder(R.drawable.ic_default_dp)
-//                builder.apply(requestOptions)
-//                builder.into(view!!.civ_dp)
+                val requestOptions = RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL)
+
+                var builder = Glide.with(view!!.context)
+                    .load(memberInfo.imageurl)
+
+                requestOptions.placeholder(R.drawable.ic_default_dp)
+                builder.apply(requestOptions)
+                builder.into(view!!.civ_dp)
             }
 
             if(memberInfo.isisadmin()){
