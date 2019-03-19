@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Adapter
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -61,7 +62,7 @@ class HomeActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
         var actionBar = supportActionBar
         if(actionBar != null){
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_right_double_arrow)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu)
             actionBar.setDisplayHomeAsUpEnabled(true)
         }
 
@@ -72,6 +73,11 @@ class HomeActivity : AppCompatActivity() {
         findViewById<NavigationView>(R.id.nav_view).setNavigationItemSelectedListener {
             it.setChecked(true)
             drawer_layout.closeDrawers()
+
+            when(it.itemId){
+                R.id.nav_home -> {}
+            }
+
             return@setNavigationItemSelectedListener true
         }
     }
@@ -147,7 +153,9 @@ class HomeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if(item != null){
             when(item!!.itemId){
-
+                android.R.id.home -> {
+                    drawer_layout.openDrawer(GravityCompat.START)
+                }
             }
         }
 

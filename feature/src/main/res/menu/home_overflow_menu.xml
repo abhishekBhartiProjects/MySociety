@@ -2,25 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_night"
-        android:title="Any option"
-        app:showAsAction="never">
-        <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/menu_night_mode_system"
-                    android:title="night mode" />
-                <item
-                    android:id="@+id/menu_night_mode_day"
-                    android:title="day" />
-                <item
-                    android:id="@+id/menu_night_mode_night"
-                    android:title="night" />
-                <item
-                    android:id="@+id/menu_night_mode_auto"
-                    android:title="auto" />
-            </group>
-        </menu>
-    </item>
-
+        android:id="@+id/menu_add_new_member"
+        android:title="Add New Member"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_delete_member"
+        android:title="Delete Member"
+        app:showAsAction="never"/>
 </menu>
