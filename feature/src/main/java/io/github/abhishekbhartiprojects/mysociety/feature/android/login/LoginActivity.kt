@@ -79,6 +79,7 @@ class LoginActivity : AppCompatActivity() {
                     } else {
                         Common.showToastShort(this, "Incorrect Pin")
                     }
+                    break
                 }
             }
 
