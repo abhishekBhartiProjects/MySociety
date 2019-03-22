@@ -6,7 +6,7 @@
         android:title="Add New Member"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/menu_delete_member"
-        android:title="Delete Member"
+        android:id="@+id/menu_edit_delete_member"
+        android:title="Edit/Delete Member"
         app:showAsAction="never"/>
 </menu>

@@ -14,15 +14,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "flatno",
         "issuperadmin",
         "isadmin",
+        "isactive",
         "name",
         "contactno",
         "email",
         "pin",
         "profession",
+        "dob",
         "imageurl",
         "isOwner",
         "bloodGroup",
-        "description"
+        "description",
+        "updatedby",
+        "updatedon",
+
 })
 
 public class MemberInfoRow implements Parcelable {
@@ -54,6 +59,14 @@ public class MemberInfoRow implements Parcelable {
     private String bloodgroup = "";
     @JsonProperty("description")
     private String description = "";
+    @JsonProperty("isactive")
+    private boolean isactive = false;
+    @JsonProperty("updatedby")
+    private String updatedby = "";
+    @JsonProperty("updatedon")
+    private String updatedon = "";
+    @JsonProperty("dob")
+    private String dob = "";
 
     protected MemberInfoRow(Parcel in) {
         memberid = in.readString();
@@ -70,6 +83,10 @@ public class MemberInfoRow implements Parcelable {
         isowner = in.readByte() != 0;
         bloodgroup = in.readString();
         description = in.readString();
+        isactive = in.readByte() != 0;
+        updatedby = in.readString();
+        updatedon = in.readString();
+        dob = in.readString();
     }
 
     public static final Creator<MemberInfoRow> CREATOR = new Creator<MemberInfoRow>() {
@@ -105,6 +122,10 @@ public class MemberInfoRow implements Parcelable {
         parcel.writeByte((byte) (isowner ? 1 : 0));
         parcel.writeString(bloodgroup);
         parcel.writeString(description);
+        parcel.writeByte((byte) (isactive ? 1 : 0));
+        parcel.writeString(updatedby);
+        parcel.writeString(updatedon);
+        parcel.writeString(dob);
     }
 
     public String getMemberid() {
@@ -217,6 +238,38 @@ public class MemberInfoRow implements Parcelable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isIsactive() {
+        return isactive;
+    }
+
+    public void setIsactive(boolean isactive) {
+        this.isactive = isactive;
+    }
+
+    public String getUpdatedby() {
+        return updatedby;
+    }
+
+    public void setUpdatedby(String updatedby) {
+        this.updatedby = updatedby;
+    }
+
+    public String getUpdatedon() {
+        return updatedon;
+    }
+
+    public void setUpdatedon(String updatedon) {
+        this.updatedon = updatedon;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public static Creator<MemberInfoRow> getCREATOR() {

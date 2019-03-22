@@ -29,19 +29,21 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".android.base.BaseActivity" />
         <activity android:name=".android.login.LoginActivity" />
         <activity android:name=".android.home.HomeActivity" />
-
         <activity android:name=".android.launcher.LauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".android.editMember.EditMemberActivity"></activity>
     </application>
 
 </manifest>

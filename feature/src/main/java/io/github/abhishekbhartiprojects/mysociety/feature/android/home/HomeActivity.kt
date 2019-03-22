@@ -6,14 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Adapter
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.navigation.NavigationView
 import io.github.abhishekbhartiprojects.mysociety.feature.R
 import io.github.abhishekbhartiprojects.mysociety.feature.android.MySharedPreference
+import io.github.abhishekbhartiprojects.mysociety.feature.android.editMember.EditMemberActivity
 import io.github.abhishekbhartiprojects.mysociety.feature.model.MemberInfoRow
 import io.github.abhishekbhartiprojects.mysociety.feature.model.SheetDataMemberInfo
 import io.github.abhishekbhartiprojects.mysociety.feature.viewModel.SheetViewModel
@@ -75,7 +74,19 @@ class HomeActivity : AppCompatActivity() {
             drawer_layout.closeDrawers()
 
             when(it.itemId){
-                R.id.nav_home -> {}
+                R.id.nav_home -> { }
+                R.id.nav_edit_profile -> {
+                    if(loggedInMemberData != null){
+                        showEditSelfPage(loggedInMemberData, allMembersData)
+                    }
+                }
+                R.id.nav_edit_family -> {
+                    if(loggedInMemberData != null){
+                        showEditFamilyPage(loggedInMemberData, allMembersData)
+                    }
+                }
+                R.id.nav_create_event -> { }
+                R.id.nav_logout -> { }
             }
 
             return@setNavigationItemSelectedListener true
@@ -142,7 +153,12 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        if(loggedInMemberData != null){
+            menuInflater.inflate(R.menu.home_overflow_menu, menu)
+        }
+
         menuInflater.inflate(R.menu.home_overflow_menu, menu)
+
         return true
     }
 
@@ -156,10 +172,37 @@ class HomeActivity : AppCompatActivity() {
                 android.R.id.home -> {
                     drawer_layout.openDrawer(GravityCompat.START)
                 }
+
+                R.id.menu_add_new_member -> {
+                    if(loggedInMemberData != null){
+                        showAddMemberPage(loggedInMemberData!!.isisadmin(), loggedInMemberData, allMembersData)
+                    }
+                }
+
+                R.id.menu_edit_delete_member -> {
+                    if(loggedInMemberData != null){
+                        showEditMemberPage(loggedInMemberData!!.isisadmin(), loggedInMemberData, allMembersData)
+                    }
+                }
             }
         }
 
         return super.onOptionsItemSelected(item)
+    }
 
+    private fun showAddMemberPage(isAdmin: Boolean, loggedInMemberData: MemberInfoRow?, allMembersData: SheetDataMemberInfo?){
+        EditMemberActivity.start(this, isAdmin, EditMemberActivity.REQUEST_CODE_ADD_MEMBER, loggedInMemberData, allMembersData)
+    }
+
+    private fun showEditMemberPage(isAdmin: Boolean, loggedInMemberData: MemberInfoRow?, allMembersData: SheetDataMemberInfo?){
+        EditMemberActivity.start(this, isAdmin, EditMemberActivity.REQUEST_CODE_EDIT_DELETE_MEMBER, loggedInMemberData, allMembersData)
+    }
+
+    private fun showEditSelfPage(loggedInMemberData: MemberInfoRow?, allMembersData: SheetDataMemberInfo?){
+        EditMemberActivity.start(this, loggedInMemberData!!.isisadmin(), EditMemberActivity.REQUEST_CODE_EDIT_SELF, loggedInMemberData, allMembersData)
+    }
+
+    private fun showEditFamilyPage(loggedInMemberData: MemberInfoRow?, allMembersData: SheetDataMemberInfo?){
+        EditMemberActivity.start(this, loggedInMemberData!!.isisadmin(), EditMemberActivity.REQUEST_CODE_EDIT_FAMILY, loggedInMemberData, allMembersData)
     }
 }
